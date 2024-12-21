@@ -1,10 +1,8 @@
 const startButton = document.getElementById("start");
 const output = document.getElementById("output");
 const info = document.getElementById("info");
+
 let transcribedData = "";
-const bodyParts = ["head", "neck", "chest", "abdomen","right-shoulder", "right-arm", "right-hand", "right-leg", "right-foot","left-shoulder", "left-arm", "left-hand", "left-leg", "left-foot"];
-let injuryDatabase = [];
-let aidDatabase = [];
 let scenarioDatabase = [];
 
 if ("SpeechRecognition" in window || "webkitSpeechRecognition" in window) {
@@ -41,32 +39,38 @@ if ("SpeechRecognition" in window || "webkitSpeechRecognition" in window) {
     output.textContent = "Speech Recognition is not supported in your browser.";
 }
 
+async function loadDatabase() {
+    try {
+        const scenarioResponse = await fetch("/Backend/DATABASE/scenario.json");
+        if (!scenarioResponse.ok) throw new Error(`Failed to load scenario.json: ${scenarioResponse.status}`);
+        scenarioDatabase = await scenarioResponse.json();
+        console.log("Scenario database loaded successfully.");
+    } catch (error) {
+        console.error("Error loading scenario database: ", error);
+    }
+}
+
 async function processTranscription(data) {
     console.log("Processing Transcription: ", data);
     await loadDatabase();
 
     const matchedScenario = matchScenario(data);
-    let detectedBodyParts = [];
+
     if (matchedScenario) {
-        detectedBodyParts = matchedScenario.bodyParts;
+        const { description, severeness, injuries, aidRecommendations, affectedBodyParts } = matchedScenario;
+
+        output.innerHTML = `
+            <p>Scenario Description: ${description || "No description available"}</p>
+            <p>Severity Level: ${severeness || "Unknown"}</p>
+            <p>Predicted Injuries: ${injuries ? injuries.join(", ") : "Unknown injuries detected"}</p>
+            <p>Aid Suggestions: ${aidRecommendations ? aidRecommendations.join(", ") : "No recommendations available"}</p>
+        `;
+        highlightInjuredParts(affectedBodyParts || []);
     } else {
-        detectedBodyParts = checkBodyParts(data);
+        output.innerHTML = `<p>No matching scenario found for the provided transcription.</p>`;
     }
 
-    const expandedBodyParts = expandGroupedBodyParts(detectedBodyParts);
-    const predictedInjuries = identifyInjuries(expandedBodyParts);
-    const aidRecommendations = getAidForInjuries(predictedInjuries);
     const { name, age, location } = extractPersonalDetails(data);
-
-    highlightInjuredParts(expandedBodyParts);
-
-    output.innerHTML = `
-        <p>Detected Scenario: ${data}</p>
-        <p>Matched Scenario: ${matchedScenario ? matchedScenario.description : "None"}</p>
-        <p>Identified Body Parts: ${detectedBodyParts.join(", ")}</p>
-        <p>Predicted Injuries: ${predictedInjuries.length > 0 ? predictedInjuries.join(", ") : "Unknown injuries detected"}</p>
-        <p>Aid Suggestions: ${aidRecommendations.length > 0 ? aidRecommendations.join(", ") : "Unknown aid suggestions available"}</p>
-    `;
 
     info.innerHTML = `
         <p>Name: ${name || "Unknown"}</p>
@@ -75,68 +79,22 @@ async function processTranscription(data) {
     `;
 }
 
-async function loadDatabase() {
-    try {
-        const injuryResponse = await fetch("/Backend/DATABASE/injury.json");
-        if (!injuryResponse.ok) throw new Error(`Failed to load injury.json: ${injuryResponse.status}`);
-        injuryDatabase = await injuryResponse.json();
+function matchScenario(data) {
+    console.log("Matching scenario for data:", data);
 
-        const aidResponse = await fetch("/Backend/DATABASE/aid.json");
-        if (!aidResponse.ok) throw new Error(`Failed to load aid.json: ${aidResponse.status}`);
-        aidDatabase = await aidResponse.json();
-
-        const scenarioResponse = await fetch("/Backend/DATABASE/scenario.json");
-        if (!scenarioResponse.ok) throw new Error(`Failed to load scenario.json: ${scenarioResponse.status}`);
-        scenarioDatabase = await scenarioResponse.json();
-
-        console.log("Databases loaded successfully!");
-    } catch (error) {
-        console.error("Error Loading Database: ", error);
+    if (!scenarioDatabase || scenarioDatabase.length === 0) {
+        console.error("Scenario database is empty or not loaded.");
+        return null;
     }
-}
 
+    const matchedScenario = scenarioDatabase.find(scenario =>
+        scenario.keywords &&
+        scenario.keywords.some(keyword => 
+            keyword && data.toLowerCase().includes(keyword.toLowerCase())
+        )
+    );
 
-
-function checkBodyParts(data) {
-    const normalizedData = data.toLowerCase().replace(/\s+/g, "-");
-    return bodyParts.filter(part => normalizedData.includes(part));
-}
-
-function expandGroupedBodyParts(detectedParts) {
-    const expandedParts = [];
-    detectedParts.forEach(part => {
-        if (part === "legs") {
-            expandedParts.push("right-leg", "left-leg");
-        } else if (part === "arms") {
-            expandedParts.push("right-arm", "left-arm");
-        } else {
-            expandedParts.push(part);
-        }
-    });
-    return expandedParts;
-}
-
-function identifyInjuries(detectedParts) {
-    const injuries = [];
-    detectedParts.forEach(part => {
-
-        const matchingInjuries = injuryDatabase.filter(injury => injury.bodyPart.toLowerCase() === part);
-        console.log("Scenario Database:", matchingInjuries);
-
-        matchingInjuries.forEach(injury => injuries.push(injury.name));
-    });
-    return injuries;
-}
-
-function getAidForInjuries(injuries) {
-    const aidRecommendations = [];
-    injuries.forEach(injury => {
-        const matchingAid = aidDatabase.find(aid => aid.injury.toLowerCase() === injury.toLowerCase());
-        if (matchingAid) {
-            aidRecommendations.push(matchingAid.solution);
-        }
-    });
-    return aidRecommendations;
+    return matchedScenario || null;
 }
 
 function extractPersonalDetails(data) {
@@ -152,30 +110,6 @@ function extractPersonalDetails(data) {
     };
 }
 
-function matchScenario(data) {
-    console.log("Matching scenario for data:", data);
-
-    if (!scenarioDatabase || scenarioDatabase.length === 0) {
-        console.error("Scenario database is empty or not loaded.");
-        return null;
-    }
-
-    if (!data) {
-        console.error("No data provided to matchScenario.");
-        return null;
-    }
-
-    const matchedScenario = scenarioDatabase.find(scenario => 
-        scenario.keywords && 
-        scenario.keywords.some(keyword => 
-            keyword && data.toLowerCase().includes(keyword.toLowerCase())
-        )
-    );
-
-    return matchedScenario || null;
-}
-
-
 function highlightInjuredParts(detectedBodyParts) {
     document.querySelectorAll('.human-body svg path, .human-body svg ellipse').forEach(el => {
         el.classList.remove('highlight');
@@ -189,3 +123,4 @@ function highlightInjuredParts(detectedBodyParts) {
     });
 }
 
+loadDatabase();

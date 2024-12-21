@@ -1,12 +1,18 @@
 [
     {
-        "scenario": "Car Accident",
-        "keywords": ["car accident", "collision", "crash"],
-        "affectedBodyParts": ["head", "chest", "legs"]
+        "description": "Car accident involving severe injuries",
+        "keywords": ["car accident", "head hurt", "can't walk"],
+        "severeness": "Severe",
+        "injuries": ["Head injury", "Fractured leg"],
+        "aidRecommendations": ["Call emergency services", "Stabilize the head", "Apply a splint to the leg"],
+        "affectedBodyParts": ["head", "right-leg"]
     },
     {
-        "scenario": "Fall Injury",
-        "keywords": ["fall", "slip", "trip"],
-        "affectedBodyParts": ["arms", "legs"]
+        "description": "Fall injury with minor bruises",
+        "keywords": ["fell down", "bruises", "pain"],
+        "severeness": "Mild",
+        "injuries": ["Bruises"],
+        "aidRecommendations": ["Apply ice packs", "Elevate the injured area"],
+        "affectedBodyParts": ["left-arm", "left-leg"]
     }
 ]
