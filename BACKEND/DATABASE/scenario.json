@@ -14,5 +14,149 @@
         "injuries": ["Bruises"],
         "aidRecommendations": ["Apply ice packs", "Elevate the injured area"],
         "affectedBodyParts": ["left-arm", "left-leg"]
+    },
+    {
+        "description": "Burn injury from a kitchen accident",
+        "keywords": ["burn", "kitchen", "fire"],
+        "severeness": "Moderate",
+        "injuries": ["Burns on hand"],
+        "aidRecommendations": ["Run cool water over the burn", "Cover with a clean, dry cloth"],
+        "affectedBodyParts": ["right-hand"]
+    },
+    {
+        "description": "Sports injury with a twisted ankle",
+        "keywords": ["sports", "ankle pain", "twisted ankle"],
+        "severeness": "Mild",
+        "injuries": ["Sprained ankle"],
+        "aidRecommendations": ["Rest the ankle", "Apply ice", "Elevate the leg"],
+        "affectedBodyParts": ["right-ankle"]
+    },
+    {
+        "description": "Construction accident with a back injury",
+        "keywords": ["construction", "back pain", "heavy object"],
+        "severeness": "Severe",
+        "injuries": ["Back injury"],
+        "aidRecommendations": ["Avoid moving the patient", "Call emergency services"],
+        "affectedBodyParts": ["back"]
+    },
+    {
+        "description": "Bike accident with arm fractures",
+        "keywords": ["bike crash", "broken arm", "pain"],
+        "severeness": "Severe",
+        "injuries": ["Fractured arm"],
+        "aidRecommendations": ["Immobilize the arm", "Seek immediate medical attention"],
+        "affectedBodyParts": ["left-arm"]
+    },
+    {
+        "description": "Heat exhaustion during outdoor activity",
+        "keywords": ["heat exhaustion", "dizzy", "sweating"],
+        "severeness": "Moderate",
+        "injuries": ["Dehydration", "Heat exhaustion"],
+        "aidRecommendations": ["Move to a cool place", "Give water", "Apply cool compresses"],
+        "affectedBodyParts": ["whole-body"]
+    },
+    {
+        "description": "Dog bite incident on the leg",
+        "keywords": ["dog bite", "bleeding", "infection risk"],
+        "severeness": "Moderate",
+        "injuries": ["Bite wound"],
+        "aidRecommendations": ["Clean the wound", "Apply a bandage", "Seek medical advice"],
+        "affectedBodyParts": ["left-leg"]
+    },
+    {
+        "description": "Chemical spill on hands during lab work",
+        "keywords": ["chemical spill", "hand burn", "lab accident"],
+        "severeness": "Moderate",
+        "injuries": ["Chemical burn"],
+        "aidRecommendations": ["Rinse with water for 15 minutes", "Remove contaminated clothing"],
+        "affectedBodyParts": ["both-hands"]
+    },
+    {
+        "description": "Slip on icy pavement with wrist injury",
+        "keywords": ["slip", "ice", "wrist pain"],
+        "severeness": "Mild",
+        "injuries": ["Sprained wrist"],
+        "aidRecommendations": ["Rest the wrist", "Apply ice", "Use a wrist brace"],
+        "affectedBodyParts": ["right-wrist"]
+    },
+    {
+        "description": "Electric shock while repairing a device",
+        "keywords": ["electric shock", "tingling", "unconscious"],
+        "severeness": "Severe",
+        "injuries": ["Electrical burns", "Shock"],
+        "aidRecommendations": ["Turn off the power source", "Call emergency services"],
+        "affectedBodyParts": ["right-hand", "left-hand"]
+    },
+    {
+        "description": "Cut from broken glass during cleanup",
+        "keywords": ["broken glass", "cut", "bleeding"],
+        "severeness": "Moderate",
+        "injuries": ["Deep cut"],
+        "aidRecommendations": ["Stop the bleeding", "Clean the wound", "Apply a sterile bandage"],
+        "affectedBodyParts": ["left-hand"]
+    },
+    {
+        "description": "Allergic reaction with swelling and rash",
+        "keywords": ["allergy", "rash", "swelling"],
+        "severeness": "Moderate",
+        "injuries": ["Allergic reaction"],
+        "aidRecommendations": ["Administer antihistamines", "Seek medical attention if severe"],
+        "affectedBodyParts": ["face", "neck"]
+    },
+    {
+        "description": "Minor burn from spilled coffee",
+        "keywords": ["burn", "coffee spill", "hot liquid"],
+        "severeness": "Mild",
+        "injuries": ["Minor burn"],
+        "aidRecommendations": ["Cool the burn with water", "Avoid popping blisters"],
+        "affectedBodyParts": ["right-hand"]
+    },
+    {
+        "description": "Hit by a falling object at work",
+        "keywords": ["falling object", "head injury", "workplace accident"],
+        "severeness": "Severe",
+        "injuries": ["Head injury"],
+        "aidRecommendations": ["Stabilize the head", "Call emergency services"],
+        "affectedBodyParts": ["head"]
+    },
+    {
+        "description": "Choking during a meal",
+        "keywords": ["choking", "food stuck", "difficulty breathing"],
+        "severeness": "Severe",
+        "injuries": ["Airway obstruction"],
+        "aidRecommendations": ["Perform Heimlich maneuver", "Call emergency services"],
+        "affectedBodyParts": ["throat"]
+    },
+    {
+        "description": "Sunburn after prolonged exposure",
+        "keywords": ["sunburn", "red skin", "blisters"],
+        "severeness": "Mild",
+        "injuries": ["Sunburn"],
+        "aidRecommendations": ["Apply aloe vera gel", "Stay out of the sun"],
+        "affectedBodyParts": ["back", "shoulders"]
+    },
+    {
+        "description": "Food poisoning with abdominal pain",
+        "keywords": ["food poisoning", "vomiting", "diarrhea"],
+        "severeness": "Moderate",
+        "injuries": ["Dehydration", "Stomach upset"],
+        "aidRecommendations": ["Drink fluids", "Avoid solid food", "Seek medical help if severe"],
+        "affectedBodyParts": ["stomach"]
+    },
+    {
+        "description": "Accidental hand injury with a hammer",
+        "keywords": ["hammer", "hit hand", "injury"],
+        "severeness": "Moderate",
+        "injuries": ["Bruised hand"],
+        "aidRecommendations": ["Apply ice", "Rest the hand"],
+        "affectedBodyParts": ["right-hand"]
+    },
+    {
+        "description": "Ankle injury from falling off stairs",
+        "keywords": ["stairs", "fall", "ankle pain"],
+        "severeness": "Moderate",
+        "injuries": ["Twisted ankle"],
+        "aidRecommendations": ["Rest the ankle", "Elevate it", "Apply compression"],
+        "affectedBodyParts": ["left-ankle"]
     }
 ]
