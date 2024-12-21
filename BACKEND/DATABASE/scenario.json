@@ -1,0 +1,12 @@
+[
+    {
+        "scenario": "Car Accident",
+        "keywords": ["car accident", "collision", "crash"],
+        "affectedBodyParts": ["head", "chest", "legs"]
+    },
+    {
+        "scenario": "Fall Injury",
+        "keywords": ["fall", "slip", "trip"],
+        "affectedBodyParts": ["arms", "legs"]
+    }
+]
