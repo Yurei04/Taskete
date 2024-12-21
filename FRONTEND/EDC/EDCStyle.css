@@ -8,7 +8,40 @@ html {
 body {
     overflow-x: hidden;
     background-color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/* From Uiverse.io by zjssun */ 
+button {
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: none;
+    background: transparent;
+    cursor: pointer;
+    box-shadow: transparent;
+    border: 1px solid #ffffff;
+    transition: 0.5s ease;
+}
+
+#start:hover,
+:focus {
+    color: #ffffff;
+    background: #008cff;
+    border: 1px solid #008cff;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+    box-shadow: 0 0 5px #008cff, 0 0 20px #008cff, 0 0 50px #008cff,
+        0 0 100px #008cff;
+}
+
+.lethality {
+    align-items: center;
+    justify-content: center;
+}
+
 
 .body-wrapper {
     height: 100vh;
@@ -16,14 +49,18 @@ body {
     display: grid;
     grid-template-columns: 300px 1fr 300px;
     gap: 10px;
-    margin: 30px;
+    margin: 10px;
     box-sizing: border-box;
 }
 
 .data-set {
     height: 100%;
     width: 100%;
-    background-color: aqua;
+    background-color: rgb(0, 0, 0);
+    padding: 10px;
+    border-radius: 14px;
+    border: #ffffff solid 2px;
+    color: #fff;
 }
 
 .body-container {
@@ -35,12 +72,20 @@ body {
     align-items: center;
     justify-content: center;
     background-color: black;
+    border: #ffffff solid 2px;
+    color: #fff;
+    padding: 10px;
 }
 
 .show-information {
     height: 100%;
     width: 100%;
-    background-color: blue;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+    padding: 10px;
+    border-radius: 14px;
+    border: #ffffff solid 2px;
+    color: #fff;
 }
 
 @media (max-width: 768px){
@@ -53,7 +98,6 @@ body {
         margin: 10px;
     }
 }
-
 .human-body {
     top: -2rem;
     position: relative;
@@ -72,6 +116,12 @@ body {
 
 .human-body svg:hover path {
     fill: #f14d49;
+}
+
+.human-body svg path {
+    fill: black; 
+    stroke: white; 
+    stroke-width: 2px; 
 }
 
 .human-body svg {
@@ -164,5 +214,5 @@ body {
     fill: yellow;
     stroke: red;
     stroke-width: 6px;
+    filter: drop-shadow(0 0 5px rgb(255, 36, 36)); 
 }
-
