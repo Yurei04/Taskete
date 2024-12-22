@@ -31,3 +31,23 @@ for (const [course, progress] of Object.entries(certificateExpirations)) {
         progressBar.style.backgroundColor = "green";
     }
 }
+
+function resetProgressBar(progressBarId, duration) {
+    const progressBar = document.getElementById(progressBarId);
+    if (!progressBar) return;
+
+    progressBar.style.width = "100%";
+
+    const intervalTime = 100;
+    const decrement = 100 / (duration / intervalTime);
+
+    const interval = setInterval(() => {
+        const currentWidth = parseFloat(progressBar.style.width);
+        if (currentWidth <= 0) {
+            clearInterval(interval);
+            alert("Certification expired! Please retake the exam.");
+        } else {
+            progressBar.style.width = (currentWidth - decrement) + "%";
+        }
+    }, intervalTime);
+}

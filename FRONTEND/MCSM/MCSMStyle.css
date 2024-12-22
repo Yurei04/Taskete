@@ -1,5 +1,3 @@
-/* courses-and-exams.css */
-
 body {
     background-color: #121212;
     color: #e0e0e0;
@@ -13,6 +11,7 @@ body {
     padding: 20px;
     text-align: center;
     border-bottom: 1px solid #333;
+    z-index: 1000; /* Ensure navigation stays on top */
 }
 
 .nav-container h1 {
@@ -24,6 +23,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
+    position: relative;
 }
 
 .selection {
@@ -60,19 +60,33 @@ body {
     background-color: #388e3c;
 }
 
-.courses-containers, .exams-container {
+.courses-containers,
+.exams-container {
     padding: 20px;
-    display: none;
+    display: none; /* Default to hidden */
+    z-index: 10; /* Ensure visibility over background */
+    position: relative;
 }
 
-.course-content, .exam-content {
+.course-content,
+.exam-content {
     border: 1px solid #333;
     background-color: #1e1e1e;
     border-radius: 8px;
     padding: 20px;
+    display: none; /* Hidden until activated */
+    z-index: 100; /* Ensure visibility */
+    position: relative;
 }
 
-.course-content h3, .exam-content h3 {
+.course-content.active,
+.exam-content.active {
+    display: block; /* Show when active */
+    z-index: 100;
+}
+
+.course-content h3,
+.exam-content h3 {
     color: #ffffff;
     border-bottom: 1px solid #333;
     padding-bottom: 10px;
@@ -83,7 +97,8 @@ body {
     margin-bottom: 20px;
 }
 
-input[type="text"], button {
+input[type="text"],
+button {
     background-color: #4caf50;
     color: #ffffff;
     border: none;
