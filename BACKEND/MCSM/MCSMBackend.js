@@ -1,33 +1,35 @@
 function startCourse(course) {
+    const modal = document.getElementById('modal');
+    const modalBody = document.getElementById('modal-body');
     document.querySelectorAll('.course-content').forEach(el => el.style.display = 'none');
-    document.querySelector('.courses-containers').style.display = 'block';
+    modal.style.display = 'flex';
+    document.body.classList.add('modal-active');
     const selectedCourse = document.getElementById(course.replace(' ', ''));
-    console.log("Attempting to display: ", course.replace(' ', ''));
     if (selectedCourse) {
-        selectedCourse.style.display = 'block';
-        console.log("Displayed: ", selectedCourse.id);
-    } else {
-        console.error("Element not found: ", course.replace(' ', ''));
+        modalBody.innerHTML = selectedCourse.innerHTML;
+        modalBody.querySelector('button').addEventListener('click', () => {
+            takeExam(course); 
+        });
     }
 }
 
 function takeExam(course) {
-    document.querySelectorAll('.exam-content').forEach(el => el.style.display = 'none');
-    document.querySelector('.exams-container').style.display = 'block';
-
-    const selectedExam = document.getElementById(course.replace(' ', '') + 'Exam');
-    console.log("Attempting to display exam: ", course.replace(' ', '') + 'Exam');
-    
+    const modal = document.getElementById('modal');
+    const modalBody = document.getElementById('modal-body');
+    const selectedExam = document.getElementById(`${course.replace(' ', '')}Exam`);
     if (selectedExam) {
-        selectedExam.style.display = 'block';
-        console.log("Displayed exam: ", selectedExam.id);
-    } else {
-        console.error("Exam element not found: ", course.replace(' ', '') + 'Exam');
+        modalBody.innerHTML = selectedExam.innerHTML;
+        modalBody.querySelector('button').addEventListener('click', () => {
+            alert(`Exam for ${course} submitted!`);
+            closeModal();
+        });
     }
 }
 
-
-function completeExam(course) {
-    alert(`${course} Exam completed! Certificate awarded.`);
-    resetProgressBar(`${course.toLowerCase()}Progress`, 60000);
+function closeModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none';
+    document.body.classList.remove('modal-active');
 }
+
+document.getElementById('closeModal').addEventListener('click', closeModal);
