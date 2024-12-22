@@ -7,10 +7,64 @@
     <link rel="stylesheet" href="MCSMStyle.css">
 </head>
 <body>
-    
+    <div class="nav-container">
+        <h1>Medal Certification System</h1>
+    </div>
+
+    <div class="body-wrapper">
+        <div class="selection">
+            <div class="course" id="course1">
+                <h2>CPR Course</h2>
+                <button onclick="startCourse('CPR')">Start CPR Course</button>
+            </div>
+            <div class="course" id="course2">
+                <h2>First Aid Course</h2>
+                <button onclick="startCourse('First Aid')">Start First Aid Course</button>
+            </div>
+            <div class="course" id="course3">
+                <h2>Fire Safety Course</h2>
+                <button onclick="startCourse('Fire Safety')">Start Fire Safety Course</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="courses-containers">
+        <div id="CPR" class="course-content">
+            <h3>CPR Course Content</h3>
+            <p>Learn the basics of CPR...</p>
+            <button onclick="takeExam('CPR')">Take CPR Exam</button>
+        </div>
+        <div id="FirstAid" class="course-content">
+            <h3>First Aid Course Content</h3>
+            <p>Learn the essentials of First Aid...</p>
+            <button onclick="takeExam('First Aid')">Take First Aid Exam</button>
+        </div>
+        <div id="FireSafety" class="course-content">
+            <h3>Fire Safety Course Content</h3>
+            <p>Understand fire safety protocols...</p>
+            <button onclick="takeExam('Fire Safety')">Take Fire Safety Exam</button>
+        </div>
+    </div>
+
+    <div class="exams-container">
+        <div id="CPRExam" class="exam-content">
+            <h3>CPR Exam</h3>
+            <p>Question: What is the first step in performing CPR?</p>
+            <button onclick="completeExam('CPR')">Submit Exam</button>
+        </div>
+        <div id="FirstAidExam" class="exam-content">
+            <h3>First Aid Exam</h3>
+            <p>Question: What is the recovery position?</p>
+            <button onclick="completeExam('First Aid')">Submit Exam</button>
+        </div>
+        <div id="FireSafetyExam" class="exam-content">
+            <h3>Fire Safety Exam</h3>
+            <p>Question: What is the best way to put out a grease fire?</p>
+            <button onclick="completeExam('Fire Safety')">Submit Exam</button>
+        </div>
+    </div>
 
     <script src="./MCSMIndex.js"></script>
     <script src="../../BACKEND/MCSM/MCSMBackend.js"></script>
-    
 </body>
 </html>

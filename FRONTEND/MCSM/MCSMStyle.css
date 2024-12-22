@@ -1,0 +1,32 @@
+html {
+    scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.body-wrapper {
+    width: 100%;
+    height: 100vh;
+    padding: 10px;
+    margin: 0;
+}
+
+.selection {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr;
+    gap: 30px;
+}
+
+.CPR, .FirstAid, .FireSafety{
+    display: none;
+}
+
+.CPRExam, .FirstAidExam, .FireSafetyExam {
+    display: none;
+}
