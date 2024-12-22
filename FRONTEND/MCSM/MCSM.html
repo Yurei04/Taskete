@@ -29,37 +29,88 @@
     </div>
 
     <div class="courses-containers">
-        <div id="CPR" class="course-content">
+        <div id="CPR" class="course-content" style="display: none;">
             <h3>CPR Course Content</h3>
-            <p>Learn the basics of CPR...</p>
+            <p>
+                CPR (Cardiopulmonary Resuscitation) is a life-saving technique used in emergencies such as cardiac arrest. Key steps include:
+                <ul>
+                    <li>Check for responsiveness and breathing.</li>
+                    <li>Call for emergency help.</li>
+                    <li>Start chest compressions at a rate of 100-120 per minute.</li>
+                    <li>Provide rescue breaths after every 30 compressions if trained.</li>
+                </ul>
+            </p>
             <button onclick="takeExam('CPR')">Take CPR Exam</button>
         </div>
-        <div id="FirstAid" class="course-content">
+        <div id="FirstAid" class="course-content" style="display: none;">
             <h3>First Aid Course Content</h3>
-            <p>Learn the essentials of First Aid...</p>
+            <p>
+                First Aid is the immediate care given to someone who is injured or ill. Topics include:
+                <ul>
+                    <li>Managing bleeding and wounds.</li>
+                    <li>Using the recovery position for unconscious individuals.</li>
+                    <li>Handling burns and scalds.</li>
+                    <li>Recognizing and managing shock.</li>
+                </ul>
+            </p>
             <button onclick="takeExam('First Aid')">Take First Aid Exam</button>
         </div>
-        <div id="FireSafety" class="course-content">
+        <div id="FireSafety" class="course-content" style="display: none;">
             <h3>Fire Safety Course Content</h3>
-            <p>Understand fire safety protocols...</p>
+            <p>
+                Fire safety involves understanding and preventing fire hazards. Key points:
+                <ul>
+                    <li>Identify common fire risks in homes and workplaces.</li>
+                    <li>Know how to use a fire extinguisher (PASS method).</li>
+                    <li>Understand evacuation procedures.</li>
+                    <li>Learn how to prevent grease fires and electrical fires.</li>
+                </ul>
+            </p>
             <button onclick="takeExam('Fire Safety')">Take Fire Safety Exam</button>
         </div>
     </div>
 
     <div class="exams-container">
-        <div id="CPRExam" class="exam-content">
+        <div id="CPRExam" class="exam-content" style="display: none;">
             <h3>CPR Exam</h3>
-            <p>Question: What is the first step in performing CPR?</p>
+            <p>Question 1: What is the correct chest compression rate for CPR? <br>
+                <input type="radio" name="q1" value="80"> 80 per minute<br>
+                <input type="radio" name="q1" value="100-120"> 100-120 per minute<br>
+                <input type="radio" name="q1" value="150"> 150 per minute<br>
+            </p>
+            <p>Question 2: What should you do before starting CPR? <br>
+                <input type="radio" name="q2" value="Check breathing"> Check breathing<br>
+                <input type="radio" name="q2" value="Call for help"> Call for help<br>
+                <input type="radio" name="q2" value="Both"> Both<br>
+            </p>
             <button onclick="completeExam('CPR')">Submit Exam</button>
         </div>
-        <div id="FirstAidExam" class="exam-content">
+        <div id="FirstAidExam" class="exam-content" style="display: none;">
             <h3>First Aid Exam</h3>
-            <p>Question: What is the recovery position?</p>
+            <p>Question 1: What is the recovery position used for? <br>
+                <input type="radio" name="q1" value="To keep an airway open"> To keep an airway open<br>
+                <input type="radio" name="q1" value="To stop bleeding"> To stop bleeding<br>
+                <input type="radio" name="q1" value="To treat burns"> To treat burns<br>
+            </p>
+            <p>Question 2: How do you stop heavy bleeding? <br>
+                <input type="radio" name="q2" value="Apply a bandage"> Apply a bandage<br>
+                <input type="radio" name="q2" value="Apply direct pressure"> Apply direct pressure<br>
+                <input type="radio" name="q2" value="Raise the limb"> Raise the limb<br>
+            </p>
             <button onclick="completeExam('First Aid')">Submit Exam</button>
         </div>
-        <div id="FireSafetyExam" class="exam-content">
+        <div id="FireSafetyExam" class="exam-content" style="display: none;">
             <h3>Fire Safety Exam</h3>
-            <p>Question: What is the best way to put out a grease fire?</p>
+            <p>Question 1: What does PASS stand for when using a fire extinguisher? <br>
+                <input type="radio" name="q1" value="Pull, Aim, Squeeze, Sweep"> Pull, Aim, Squeeze, Sweep<br>
+                <input type="radio" name="q1" value="Push, Aim, Spray, Sweep"> Push, Aim, Spray, Sweep<br>
+                <input type="radio" name="q1" value="Pull, Alert, Squeeze, Sweep"> Pull, Alert, Squeeze, Sweep<br>
+            </p>
+            <p>Question 2: What should you never use to put out a grease fire? <br>
+                <input type="radio" name="q2" value="Water"> Water<br>
+                <input type="radio" name="q2" value="Baking soda"> Baking soda<br>
+                <input type="radio" name="q2" value="Fire extinguisher"> Fire extinguisher<br>
+            </p>
             <button onclick="completeExam('Fire Safety')">Submit Exam</button>
         </div>
     </div>

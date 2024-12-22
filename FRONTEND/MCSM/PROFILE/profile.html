@@ -3,9 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>User Profile - Medal System</title>
+    <link rel="stylesheet" href="profileStyle.css">
 </head>
 <body>
-    
+    <div class="nav-container">
+        <h1>User Profile</h1>
+    </div>
+
+    <div class="profile-container">
+        <div class="medal-section">
+            <h2>Medals</h2>
+            <div id="medals">
+              
+            </div>
+        </div>
+
+        <div class="certifications-section">
+            <h2>Certifications</h2>
+            <div class="certification" id="cpr-cert">
+                <img src="cpr-icon.png" alt="CPR Certification" class="cert-icon">
+                <p>CPR Certification</p>
+                <div class="progress-bar">
+                    <div class="progress" id="cpr-progress"></div>
+                </div>
+            </div>
+
+            <div class="certification" id="firstaid-cert">
+                <img src="firstaid-icon.png" alt="First Aid Certification" class="cert-icon">
+                <p>First Aid Certification</p>
+                <div class="progress-bar">
+                    <div class="progress" id="firstaid-progress"></div>
+                </div>
+            </div>
+
+            <div class="certification" id="firesafety-cert">
+                <img src="firesafety-icon.png" alt="Fire Safety Certification" class="cert-icon">
+                <p>Fire Safety Certification</p>
+                <div class="progress-bar">
+                    <div class="progress" id="firesafety-progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./profileIndex.js"></script>
 </body>
 </html>
