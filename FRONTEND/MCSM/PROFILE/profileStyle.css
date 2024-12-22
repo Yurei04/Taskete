@@ -1,5 +1,3 @@
-/* profile.css */
-
 body {
     background-color: #121212;
     color: #e0e0e0;
@@ -23,7 +21,7 @@ body {
     padding: 20px;
 }
 
-.medal-section, .certifications-section {
+.medal-section, .certifications-section, .personal-section, .description, .qrCoded {
     margin-bottom: 30px;
     border: 1px solid #333;
     border-radius: 8px;
@@ -31,7 +29,7 @@ body {
     background-color: #1e1e1e;
 }
 
-.medal-section h2, .certifications-section h2 {
+.medal-section h2, .certifications-section h2, .personal-section h2, .description h2, .qrCoded h2 {
     color: #ffffff;
     border-bottom: 1px solid #333;
     padding-bottom: 10px;
@@ -69,3 +67,187 @@ body {
     width: 0%;
     transition: width 0.5s;
 }
+
+
+
+.skills-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    height: 100%;
+    width: 100%;
+    margin: 10px;
+    padding: 50px;
+}
+
+.Usercontainer {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.userImg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.userImg img {
+    position: relative;
+    width: 70%;
+    height: auto;
+    border-radius: 16px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 1px solid #fcff9a;
+    box-shadow: 0px 0px 15px rgba(255, 246, 119, 0.5); 
+}
+
+.credentials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+}
+
+.credentials-card {
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 15px;
+    z-index: 1;
+    color: #fff;
+    background-color: #1a1f29;
+    border: 1px solid #fcff9a;
+    box-shadow: 0px 0px 5px rgba(255, 246, 119, 0.5); 
+    transition: 0.5s ease;
+}
+
+.credentials-card:hover {
+    box-shadow: 0px 0px 15px rgba(255, 240, 34, 0.5); 
+}
+
+.card-title {
+    color: #fff;
+}
+
+.circle {
+    padding: 0 4px;
+}
+
+.tools {
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding: 9px;
+    z-index: 1;
+}
+
+.box {
+    display: inline-block;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+}
+
+.code {
+    color: white;
+}
+
+
+@media screen and (max-width: 768px) {
+    .about-wrapper {
+        margin: 20px;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .about-me-container {
+        grid-column: 1; 
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .credentials {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .radio-inputs {
+        width: 100%;
+    }
+
+    .credentials-accom {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .credentials-skills {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+  
+.radio-inputs {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: 1px solid #fff;
+    background-color: #1a1f29;
+    box-sizing: border-box;
+    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+    padding: 0.25rem;
+    width: 300px;
+    font-size: 14px;
+}
+
+.radio-inputs .radio {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.radio-inputs .radio input {
+    display: none;
+}
+
+.radio-inputs .radio .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: none;
+    padding: .5rem 0;
+    color: #fff;
+    transition: all .15s ease-in-out;
+}
+
+.radio-inputs .radio input:checked + .name {
+    color: #212121;
+    background-color: #fff;
+    font-weight: 600;
+}
+
+
+  

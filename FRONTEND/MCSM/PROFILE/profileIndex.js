@@ -1,5 +1,5 @@
 
- const userMedals = {
+const userMedals = {
     CPR: "Gold Medal 🥇",
     "First Aid": "Silver Medal 🥈", 
     "Fire Safety": "Bronze Medal 🥉" 
@@ -51,3 +51,22 @@ function resetProgressBar(progressBarId, duration) {
         }
     }, intervalTime);
 }
+
+
+document.querySelectorAll('input[name="radio"]').forEach((radioButton) => {
+    radioButton.addEventListener('change', function () {
+        const selectedValue = this.value;
+
+        document.getElementById('aboutContent').style.display = 'none';
+        document.getElementById('detailsID').style.display = 'none';
+        document.getElementById('verify').style.display = 'none';
+
+        if (selectedValue === 'Credentials') {
+            document.getElementById('aboutContent').style.display = 'grid';
+        } else if (selectedValue === 'Details') {
+            document.getElementById('detailsID').style.display = 'grid';
+        } else if (selectedValue === 'Verification') {
+            document.getElementById('verify').style.display = 'grid';
+        }
+    });
+});
