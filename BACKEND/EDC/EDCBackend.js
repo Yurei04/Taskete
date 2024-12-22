@@ -1,6 +1,7 @@
 const startButton = document.getElementById("start");
 const output = document.getElementById("output");
 const info = document.getElementById("info");
+const downloadableData = output;
 
 let transcribedData = "";
 let scenarioDatabase = [];
@@ -122,5 +123,24 @@ function highlightInjuredParts(detectedBodyParts) {
         });
     });
 }
+
+//PROBLEM WHEN DOWNLOAD CONTENTS ARE UNDEFINE FIX TOMORROW
+function downloadData(content) {
+    const blob = new Blob([content], { type: "application/msword"});
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = "document.doc";
+    link.style.display = "none";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+
+}
+
+
+
 
 loadDatabase();

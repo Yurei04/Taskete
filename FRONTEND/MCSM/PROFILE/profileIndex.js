@@ -1,4 +1,5 @@
 
+
 const userMedals = {
     CPR: "Gold Medal 🥇",
     "First Aid": "Silver Medal 🥈", 
@@ -70,3 +71,4 @@ document.querySelectorAll('input[name="radio"]').forEach((radioButton) => {
         }
     });
 });
+

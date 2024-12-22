@@ -33,3 +33,5 @@ function closeModal() {
 }
 
 document.getElementById('closeModal').addEventListener('click', closeModal);
+
+
