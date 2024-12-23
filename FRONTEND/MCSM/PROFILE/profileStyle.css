@@ -1,21 +1,43 @@
-body {
-    background-color: #121212;
-    color: #e0e0e0;
-    font-family: Arial, sans-serif;
-    margin: 0;
+html {
+    scroll-behavior: smooth;
     padding: 0;
+    margin: 0;
+    overflow-x: hidden;
 }
 
-.nav-container {
-    background-color: #1e1e1e;
-    padding: 20px;
-    text-align: center;
-    border-bottom: 1px solid #333;
+body {
+    overflow-x: hidden;
+    background-color: black;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.nav-container h1 {
+button {
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    font-size: 17px;
+    background-color: #094380;
+    font-weight: 500;
     color: #ffffff;
+    text-shadow: none;
+    cursor: pointer;
+    box-shadow: transparent;
+    border: 1px solid #ffffff;
+    transition: 0.5s ease;
 }
+
+
+button:hover,
+:focus {
+    color: #ffffff;
+    background: #3700ff;
+    border: 1px solid #6f47ff;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+    box-shadow: 0 0 5px #3700ff, 0 0 20px #3700ff, 0 0 50px #3700ff,
+        0 0 100px #3700ff;
+}
+
 
 .profile-container {
     padding: 20px;
@@ -28,6 +50,7 @@ body {
     padding: 15px;
     background-color: #1e1e1e;
 }
+
 
 .medal-section h2, .certifications-section h2, .personal-section h2, .description h2, .verification h2 {
     color: #ffffff;
@@ -256,3 +279,42 @@ body {
 
 
   
+
+  
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    opacity: 0.15;
+    z-index: -1; 
+}
+  
+.slides.fade {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; 
+}
+
+.slides.fade.active {
+    opacity: 1;
+}
+
+@keyframes changeSlide {
+    0% { opacity: 0; }
+    25% { opacity: 1; }
+    75% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@media (max-width: 768px) { 
+body {
+    overflow-x: hidden;
+    width: 100vw;
+}
+}

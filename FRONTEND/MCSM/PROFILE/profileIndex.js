@@ -1,4 +1,7 @@
 
+document.getElementById('detailsID').style.display = 'none';
+document.getElementById('verify').style.display = 'none';
+
 
 const userMedals = {
     CPR: "Gold Medal 🥇",
@@ -37,21 +40,27 @@ function resetProgressBar(progressBarId, duration) {
     const progressBar = document.getElementById(progressBarId);
     if (!progressBar) return;
 
-    progressBar.style.width = "100%";
+    progressBar.style.width = "100%"; 
 
-    const intervalTime = 100;
-    const decrement = 100 / (duration / intervalTime);
+    const intervalTime = 100; 
+    const decrement = 100 / (duration / intervalTime); 
 
     const interval = setInterval(() => {
         const currentWidth = parseFloat(progressBar.style.width);
         if (currentWidth <= 0) {
-            clearInterval(interval);
+            clearInterval(interval); 
+            progressBar.style.width = "0%";
+            progressBar.style.backgroundColor = "red"; 
             alert("Certification expired! Please retake the exam.");
         } else {
             progressBar.style.width = (currentWidth - decrement) + "%";
         }
     }, intervalTime);
 }
+
+resetProgressBar("cpr-progress", 60000);       
+resetProgressBar("firstaid-progress", 40000);  
+resetProgressBar("firesafety-progress", 20000);
 
 
 document.querySelectorAll('input[name="radio"]').forEach((radioButton) => {
@@ -91,3 +100,23 @@ document.getElementById("generate").addEventListener("click", function () {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    let slides = document.querySelectorAll('.slides.fade');
+    let slide_index = 0;
+  
+    function show_slides() {
+        slides.forEach(function(slide) {
+            slide.classList.remove('active');
+        });
+  
+        slide_index++;
+        if (slide_index >= slides.length) {
+            slide_index = 0;
+        }
+  
+        slides[slide_index].classList.add('active');
+    }
+    show_slides();
+    setInterval(show_slides, 5000); 
+});  

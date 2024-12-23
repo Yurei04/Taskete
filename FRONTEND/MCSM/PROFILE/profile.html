@@ -5,16 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile - Medal System</title>
     <link rel="stylesheet" href="profileStyle.css">
+    <link rel="stylesheet" href="../../HOME/navbar.css">
 </head>
 <body>
-    <div class="nav-container">
-        <h1>User Profile</h1>
-    </div>
+    <header class="nav-top">
+        <nav class="nav nav-container">
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-arrow-up-right"></i>
+                            <span> Home </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-arrow-up-right"></i>
+                            <span> About </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-arrow-up-right"></i>
+                            <span> Learn </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-arrow-up-right"></i>
+                            <span> Options </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
     <div class="profile-container">
         <div class="Usercontainer">
+            <h2>USER PROFILE</h2>
             <div class="userImg">
-                <img src="" alt="Profile">
+                <img src="../../../BACKEND/IMAGES/user2.jpg" alt="Profile">
             </div>    
                 <div class="change-buttons">
                 <div class="radio-inputs">
@@ -43,7 +74,7 @@
             <div class="certifications-section">
                 <h2>Certifications</h2>
                 <div class="certification" id="cpr-cert">
-                    <img src="cpr-icon.png" alt="CPR Certification" class="cert-icon">
+                    <img src="../../../BACKEND/IMAGES/icon2.png" alt="CPR Certification" class="cert-icon">
                     <p>CPR Certification</p>
                     <div class="progress-bar">
                         <div class="progress" id="cpr-progress"></div>
@@ -51,7 +82,7 @@
                 </div>
     
                 <div class="certification" id="firstaid-cert">
-                    <img src="firstaid-icon.png" alt="First Aid Certification" class="cert-icon">
+                    <img src="../../../BACKEND/IMAGES/icon2.png" alt="First Aid Certification" class="cert-icon">
                     <p>First Aid Certification</p>
                     <div class="progress-bar">
                         <div class="progress" id="firstaid-progress"></div>
@@ -59,7 +90,7 @@
                 </div>
     
                 <div class="certification" id="firesafety-cert">
-                    <img src="firesafety-icon.png" alt="Fire Safety Certification" class="cert-icon">
+                    <img src="../../../BACKEND/IMAGES/icon2.png" alt="Fire Safety Certification" class="cert-icon">
                     <p>Fire Safety Certification</p>
                     <div class="progress-bar">
                         <div class="progress" id="firesafety-progress"></div>
@@ -71,13 +102,13 @@
         <div class="details" id="detailsID">
             <div class="personal-section">
                 <h2>User Info</h2>
-                <p>Hello hello hello</p>
-                <p>Hello hello hello</p>
-                <p>Hello hello hello</p>
+                <p>Name: James Doe </p>
+                <p>Age: 19</p>
+                <p>Nationality: Philippines</p>
             </div>
             <div class="description">
                 <h2>Introduction</h2>
-                <p>Hello hello hello</p>
+                <p>Hello, my I'm james a 2nd year student taking bachelor's in science in information technology major in web technologies. Pleasure to meet you all!</p>
             </div>
         </div>
 
@@ -88,6 +119,14 @@
         </div>
 
     </div>
+
+    <div class="background-container">
+        <div class="slides fade" style="background-image: url('../../../BACKEND/IMAGES/med1.jpg');"></div>
+        <div class="slides fade" style="background-image: url('../../../BACKEND/IMAGES/med2.jpg');"></div>
+        <div class="slides fade" style="background-image: url('../../../BACKEND/IMAGES/med3.jpg');"></div>
+    </div>
+    
+    
 
     <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
     <script src="./profileIndex.js"></script>

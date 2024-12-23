@@ -3,32 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../HOME/navbar.css">
     <link rel="stylesheet" href="./EDCStyle.css">
+
     <title>EDC</title>
 </head>
 <body>
     
-    <div class="nav-container">
+    <header class="nav-top">
+        <nav class="nav nav-container">
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-arrow-up-right"></i>
+                            <span> Home </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-arrow-up-right"></i>
+                            <span> About </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-arrow-up-right"></i>
+                            <span> Learn </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="bi bi-arrow-up-right"></i>
+                            <span> Options </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-    </div>
 
     <div class="body-wrapper">
         <div class="data-set">
             <div class="lethality">
+                <h2>Main Control</h2>
                 <button id="start">Analyze</button>
                 <button id="stop">Stop</button>
                 <button onclick="downloadData()">Download Data</button>
                 <p id="output"></p>
-                <p id="info"></p>
+
             </div>
             <div class="current-info">
-
+                <p id="info"></p>
             </div>
         </div>
 
         <div class="body-container">
-            <div class="human-body">
-        
+            <h2>Human Visualizer</h2>
+            <div class="human-body" id="human-body">
                 <svg id="head" width="80.3" height="100" viewBox="0 0 181 250" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12.6756 53L11.663 110.643L0 109.49L3 142L18.663 148L30.6756 198L62.6756 250H120.676L156.676 198L164.676 143L178.676 132L180.676 103L169.676 104L168.676 49.0808C168.676 49.0808 125.105 -0.230752 88.6756 0.999954C52.7339 2.21418 12.6756 53 12.6756 53Z" fill="#D9D9D9"/>
                 </svg>
@@ -162,16 +195,24 @@
         </div>
 
         <div class="ai-chatbot">
-            <h2>Med AI</h2>
-            <div id="chatbot-messages"></div>
-            <input type="text" id="chatbot-input" placeholder="Ask me a question">
-            <button id="chatbot-send">Send</button>
+            <div class="ai-chabot-container">
+                <h2>Med AI</h2>
+                <div id="chatbot-messages"></div>
+                <input type="text" id="chatbot-input" placeholder="Ask me a question">
+                <button id="chatbot-send">Send</button>
+    
+            </div>
 
         </div>
     </div>
     
 
-
+    <div class="background-container">
+        <div class="slides fade" style="background-image: url('../../BACKEND/IMAGES/med1.jpg');"></div>
+        <div class="slides fade" style="background-image: url('../../BACKEND/IMAGES/med2.jpg');"></div>
+        <div class="slides fade" style="background-image: url('../../BACKEND/IMAGES/med3.jpg');"></div>
+    </div>
+    
 
 
 

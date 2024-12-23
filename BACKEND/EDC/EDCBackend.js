@@ -24,6 +24,11 @@ if ("SpeechRecognition" in window || "webkitSpeechRecognition" in window) {
             output.textContent = "Recording... Please speak into the microphone.";
             recognition.start();
             isRecognizing = true;
+
+            document.querySelectorAll('.human-body svg, .human-body svg ellipse').forEach(el => {
+                el.classList.remove('highlight');
+            });
+        
         }
     });
 
@@ -85,7 +90,10 @@ async function processTranscription(data) {
             <p>Predicted Injuries: ${injuries ? injuries.join(", ") : "Unknown injuries detected"}</p>
             <p>Aid Suggestions: ${aidRecommendations ? aidRecommendations.join(", ") : "No recommendations available"}</p>
         `;
+        severenessReveal(severeness);
         highlightInjuredParts(affectedBodyParts || []);
+
+
     } else {
         output.innerHTML = `<p>No matching scenario found for the provided transcription.</p>`;
     }
@@ -97,6 +105,19 @@ async function processTranscription(data) {
         <p>Age: ${age || "Unknown"}</p>
         <p>Location: ${location || "Unknown"}</p>
     `;
+}
+
+function severenessReveal(severeness) {
+    console.log("severeness: " + severeness)
+    let colorSwitch = document.querySelector(".human-body");
+
+    if(severeness === "Mild") {
+        colorSwitch.style.border = "2px solid green";
+    } else if (severeness === "Moderate") {
+        colorSwitch.style.border = "2px solid orange";
+    } else {
+        colorSwitch.style.border = "2px solid red";
+    }
 }
 
 function matchScenario(data) {
@@ -131,10 +152,6 @@ function extractPersonalDetails(data) {
 }
 
 function highlightInjuredParts(detectedBodyParts) {
-    document.querySelectorAll('.human-body svg path, .human-body svg ellipse').forEach(el => {
-        el.classList.remove('highlight');
-    });
-
     detectedBodyParts.forEach(part => {
         const svgElements = document.querySelectorAll(`[id*="${part}"], [class*="${part}"]`);
         svgElements.forEach(element => {
