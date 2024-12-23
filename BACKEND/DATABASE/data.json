@@ -1,5 +1,9 @@
 [
     {
-        
+        "keyword": ["car accident"],
+        "description": "accident",
+        "statistics": "50%",
+        "additional": "accident",
+        "injuries": "injuries"
     }
 ]

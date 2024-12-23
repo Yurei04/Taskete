@@ -2,9 +2,13 @@ const startButton = document.getElementById("start");
 const stopButton = document.getElementById("stop");
 const output = document.getElementById("output");
 const info = document.getElementById("info");
+const chatbotMessages = document.getElementById("chatbot-messages");
+const chatbotSend = document.getElementById("chatbot-send");
+const chatbotInput = document.getElementById("chatbot-input").value;
 
 let transcribedData = "";
 let scenarioDatabase = [];
+let searchDatabase = [];
 
 if ("SpeechRecognition" in window || "webkitSpeechRecognition" in window) {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -53,6 +57,7 @@ if ("SpeechRecognition" in window || "webkitSpeechRecognition" in window) {
     const output = document.getElementById("output");
     output.textContent = "Speech Recognition is not supported in your browser.";
 }
+
 async function loadDatabase() {
     try {
         const scenarioResponse = await fetch("/Backend/DATABASE/scenario.json");
@@ -160,23 +165,26 @@ function fileMaker(content) {
 }
 
 
-
 loadDatabase();
 loadAIDatabase();
+
+chatbotSend.addEventListener("click", () => {
+        AIQnA(chatbotInput)
+});
 
 async function loadAIDatabase() {
     try {
         const dataResponse = await fetch("/Backend/DATABASE/data.json");
         if (!dataResponse.ok) throw new Error(`Failed to load scenario.json: ${dataResponse.status}`);
-        dataResponse = await dataResponse.json();
-        console.log("Scenario database loaded successfully.");
+        searchDatabase = await dataResponse.json();
+        console.log("data database loaded successfully.");
     } catch (error) {
         console.error("Error loading scenario database: ", error);
     }
 }
 
 function searchData(data) {
-    console.log("Matching scenario for data:", data);
+    console.log("Matching data for data:", data);
 
     if (!searchDatabase || searchDatabase.length === 0) {
         console.error("Scenario database is empty or not loaded.");
@@ -194,7 +202,22 @@ function searchData(data) {
 }
 
 async function AIQnA(data) {
-    console.log("Processing Transcription: ", data);
+    console.log("Processing AI : ", data);
     await loadAIDatabase();
 
+    const obtainedData = searchData(data);
+
+    if (obtainedData) {
+        const {statistics, description, injuries, additional } = obtainedData;
+
+        chatbotMessages.innerHTML = `
+            <p>Statistics: ${statistics || "No data Available"}</p>
+            <p>Scenario Description: ${description || "No description available"}</p>
+            <p>Predicted Injuries: ${injuries ? injuries.join(", ") : "Unknown injuries detected"}</p>
+            <p>Aid Suggestions: ${additional ? additional.join(", ") : "No additional available"}</p>
+        `;
+        highlightInjuredParts(affectedBodyParts || []);
+    } else {
+        chatbotMessages.innerHTML = `<p>No matching data found for the provided transcription.</p>`;
+    }
 }
