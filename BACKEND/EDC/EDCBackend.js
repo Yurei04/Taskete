@@ -1,7 +1,6 @@
 const startButton = document.getElementById("start");
 const output = document.getElementById("output");
 const info = document.getElementById("info");
-const downloadableData = info.innerHTML + output.innerHTML;
 
 let transcribedData = "";
 let scenarioDatabase = [];
@@ -125,6 +124,7 @@ function highlightInjuredParts(detectedBodyParts) {
 }
 
 function downloadData() {
+    const downloadableData = (info?.innerHTML || "") + (output?.innerHTML || "");
     fileMaker(downloadableData);
 }
 
