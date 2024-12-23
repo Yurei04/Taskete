@@ -1,9 +1,107 @@
 [
     {
-        "description": "accident",
-        "keywords": ["car accident"],
-        "statistics": "50%",
-        "additional": ["accident"],
-        "injuries": ["injuries"]
+        "description": "Car accident involving a rear-end collision",
+        "keywords": ["rear-end collision", "car crash"],
+        "statistics": "29% of all car accidents are rear-end collisions",
+        "additional": ["whiplash injuries", "property damage"],
+        "injuries": ["neck strain", "concussion"]
+    },
+    {
+        "description": "Bicycle accident in urban areas",
+        "keywords": ["bicycle accident", "urban cycling"],
+        "statistics": "45% of bicycle accidents occur at intersections",
+        "additional": ["helmet usage", "traffic safety"],
+        "injuries": ["broken bones", "road rash"]
+    },
+    {
+        "description": "Sports-related concussions",
+        "keywords": ["sports injury", "concussion"],
+        "statistics": "10% of all athletes suffer a concussion annually",
+        "additional": ["rest period", "return-to-play protocol"],
+        "injuries": ["head trauma", "memory loss"]
+    },
+    {
+        "description": "Slip and fall accidents",
+        "keywords": ["slip", "fall", "wet floor"],
+        "statistics": "1 in 5 falls cause serious injury",
+        "additional": ["fractures", "workplace safety"],
+        "injuries": ["hip fracture", "sprained ankle"]
+    },
+    {
+        "description": "Fire-related burns",
+        "keywords": ["burns", "fire accident"],
+        "statistics": "486,000 fire-related injuries occur annually in the US",
+        "additional": ["first-degree burns", "fire prevention"],
+        "injuries": ["skin burns", "smoke inhalation"]
+    },
+    {
+        "description": "Food poisoning",
+        "keywords": ["food poisoning", "contaminated food"],
+        "statistics": "1 in 6 Americans suffer from food poisoning each year",
+        "additional": ["bacteria", "improper food storage"],
+        "injuries": ["dehydration", "stomach cramps"]
+    },
+    {
+        "description": "Workplace machinery accidents",
+        "keywords": ["machinery injury", "workplace accident"],
+        "statistics": "35% of workplace injuries involve machinery",
+        "additional": ["heavy equipment", "safety protocols"],
+        "injuries": ["amputations", "crush injuries"]
+    },
+    {
+        "description": "Pedestrian accidents",
+        "keywords": ["pedestrian hit", "road safety"],
+        "statistics": "75% of pedestrian deaths occur at night",
+        "additional": ["crosswalks", "reflective clothing"],
+        "injuries": ["broken ribs", "head injury"]
+    },
+    {
+        "description": "Drowning incidents",
+        "keywords": ["drowning", "swimming accident"],
+        "statistics": "10 drowning deaths occur daily in the US",
+        "additional": ["lifeguard safety", "swimming lessons"],
+        "injuries": ["oxygen deprivation", "brain damage"]
+    },
+    {
+        "description": "Allergic reactions",
+        "keywords": ["allergic reaction", "anaphylaxis"],
+        "statistics": "1 in 50 Americans experience anaphylaxis",
+        "additional": ["epinephrine", "allergen awareness"],
+        "injuries": ["airway swelling", "skin rash"]
+    },
+    {
+        "description": "Electrical shocks",
+        "keywords": ["electrical injury", "electric shock"],
+        "statistics": "1,000 deaths annually are caused by electrical injuries",
+        "additional": ["power tools", "high voltage"],
+        "injuries": ["burns", "nerve damage"]
+    },
+    {
+        "description": "Heatstroke during summer",
+        "keywords": ["heatstroke", "extreme heat"],
+        "statistics": "Over 600 heat-related deaths occur annually in the US",
+        "additional": ["hydration", "cooling measures"],
+        "injuries": ["heat exhaustion", "organ failure"]
+    },
+    {
+        "description": "Animal bites and stings",
+        "keywords": ["animal bite", "bee sting"],
+        "statistics": "4.5 million dog bites occur annually in the US",
+        "additional": ["vaccination", "first aid"],
+        "injuries": ["infections", "allergic reactions"]
+    },
+    {
+        "description": "Choking on food",
+        "keywords": ["choking", "airway blockage"],
+        "statistics": "5,000 choking deaths occur annually in the US",
+        "additional": ["chewing habits", "first aid"],
+        "injuries": ["asphyxiation", "throat injury"]
+    },
+    {
+        "description": "Lifting heavy objects",
+        "keywords": ["back injury", "lifting injury"],
+        "statistics": "25% of back injuries occur from improper lifting techniques",
+        "additional": ["ergonomic training", "lifting equipment"],
+        "injuries": ["slipped disc", "muscle strain"]
     }
 ]
