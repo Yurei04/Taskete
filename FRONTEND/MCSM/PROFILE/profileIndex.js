@@ -72,3 +72,22 @@ document.querySelectorAll('input[name="radio"]').forEach((radioButton) => {
     });
 });
 
+document.getElementById("generate").addEventListener("click", function () {
+    const qrContainer = document.getElementById("qrcode");
+    const filePath = "page.html";
+
+    qrContainer.innerHTML = "";
+
+    QRCode.toString(filePath, { 
+        width: 200, 
+        margin: 2, 
+        color: { dark: "#000000", light: "#ffffff" },
+        type: "svg",
+    }, function (error, string) {
+        if (error) {
+            console.error("Error generating QR code:", error);
+        } else {
+            qrContainer.innerHTML = string;
+        }
+    });
+});
