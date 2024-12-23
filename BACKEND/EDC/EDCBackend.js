@@ -4,7 +4,6 @@ const output = document.getElementById("output");
 const info = document.getElementById("info");
 const chatbotMessages = document.getElementById("chatbot-messages");
 const chatbotSend = document.getElementById("chatbot-send");
-const chatbotInput = document.getElementById("chatbot-input").value;
 
 let transcribedData = "";
 let scenarioDatabase = [];
@@ -169,7 +168,11 @@ loadDatabase();
 loadAIDatabase();
 
 chatbotSend.addEventListener("click", () => {
-        AIQnA(chatbotInput)
+    let chatbotInput = document.getElementById("chatbot-input");
+    let AiInput = chatbotInput.value;
+
+        AIQnA(AiInput)
+        console.log(AiInput);
 });
 
 async function loadAIDatabase() {

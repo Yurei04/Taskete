@@ -219,25 +219,19 @@ button {
 
 
 .ai-chatbot {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    border: 1px solid #333;
     border-radius: 8px;
-    padding: 16px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: Arial, sans-serif;
+    padding: 15px;
+    background-color: #1e1e1e;
 }
 
 #chatbot-messages {
-    max-height: 300px;
-    overflow-y: auto;
-    margin-bottom: 16px;
-    padding: 8px;
-    border: 1px solid #e0e0e0;
+    margin-bottom: 30px;
+    border: 1px solid #ececec;
     border-radius: 8px;
-    background-color: #fff;
+    padding: 15px;
+    background-color: #1e1e1e;
 }
 
 .chatbot-user, .chatbot-response {
@@ -248,24 +242,15 @@ button {
     background-color: #d1e7dd;
     padding: 8px;
     border-radius: 8px;
-    color: #0f5132;
-    word-wrap: break-word;
-}
-
-.chatbot-response p {
-    background-color: #f8d7da;
-    padding: 8px;
-    border-radius: 8px;
-    color: #842029;
-    word-wrap: break-word;
+    color: #000000;
 }
 
 #chatbot-input {
-    width: calc(100% - 68px);
-    padding: 8px;
-    border: 1px solid #ccc;
+    margin-bottom: 30px;
+    border: 1px solid #ececec;
     border-radius: 8px;
-    margin-right: 8px;
+    padding: 15px;
+    background-color: #1e1e1e;
 }
 
 #chatbot-send {
