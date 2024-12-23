@@ -1,4 +1,5 @@
 const startButton = document.getElementById("start");
+const stopButton = document.getElementById("stop");
 const output = document.getElementById("output");
 const info = document.getElementById("info");
 
@@ -8,37 +9,50 @@ let scenarioDatabase = [];
 if ("SpeechRecognition" in window || "webkitSpeechRecognition" in window) {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const recognition = new SpeechRecognition();
-
+    
     recognition.lang = "en-US";
     recognition.interimResults = false;
-    recognition.continuous = false;
+    recognition.continuous = false; 
+
+    let isRecognizing = false;
 
     startButton.addEventListener("click", () => {
-        output.textContent = "Recording... Please speak into the microphone.";
-        recognition.start();
+        if (!isRecognizing) {
+            output.textContent = "Recording... Please speak into the microphone.";
+            recognition.start();
+            isRecognizing = true;
+        }
+    });
+
+    stopButton.addEventListener("click", () => {
+        if (isRecognizing) {
+            recognition.stop();
+            isRecognizing = false;
+        }
     });
 
     recognition.onresult = (event) => {
         const transcript = event.results[0][0].transcript;
-        transcribedData = transcript;
         console.log("Transcript: ", transcript);
         output.textContent = `Recorded: "${transcript}"`;
-        processTranscription(transcribedData);
+        processTranscription(transcript);
     };
 
     recognition.onerror = (event) => {
         output.textContent = `Error: ${event.error}`;
     };
 
+
     recognition.onend = () => {
-        if (output.textContent === "Recording... Please speak into the microphone.") {
-            output.textContent = "No speech detected. Try again.";
+        if (isRecognizing) {
+            recognition.start();
         }
     };
+
 } else {
+    const output = document.getElementById("output");
     output.textContent = "Speech Recognition is not supported in your browser.";
 }
-
 async function loadDatabase() {
     try {
         const scenarioResponse = await fetch("/Backend/DATABASE/scenario.json");
@@ -49,6 +63,8 @@ async function loadDatabase() {
         console.error("Error loading scenario database: ", error);
     }
 }
+
+
 
 async function processTranscription(data) {
     console.log("Processing Transcription: ", data);
@@ -146,3 +162,39 @@ function fileMaker(content) {
 
 
 loadDatabase();
+loadAIDatabase();
+
+async function loadAIDatabase() {
+    try {
+        const dataResponse = await fetch("/Backend/DATABASE/data.json");
+        if (!dataResponse.ok) throw new Error(`Failed to load scenario.json: ${dataResponse.status}`);
+        dataResponse = await dataResponse.json();
+        console.log("Scenario database loaded successfully.");
+    } catch (error) {
+        console.error("Error loading scenario database: ", error);
+    }
+}
+
+function searchData(data) {
+    console.log("Matching scenario for data:", data);
+
+    if (!searchDatabase || searchDatabase.length === 0) {
+        console.error("Scenario database is empty or not loaded.");
+        return null;
+    }
+
+    const matchedData = searchDatabase.find(information =>
+        information.keywords &&
+        information.keywords.some(keyword => 
+            keyword && data.toLowerCase().includes(keyword.toLowerCase())
+        )
+    );
+
+    return matchedData || null;
+}
+
+async function AIQnA(data) {
+    console.log("Processing Transcription: ", data);
+    await loadAIDatabase();
+
+}

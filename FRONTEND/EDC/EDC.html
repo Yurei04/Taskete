@@ -16,6 +16,7 @@
         <div class="data-set">
             <div class="lethality">
                 <button id="start">Analyze</button>
+                <button id="stop">Stop</button>
                 <button onclick="downloadData()">Download Data</button>
                 <p id="output"></p>
                 <p id="info"></p>
@@ -160,8 +161,12 @@
             </div>
         </div>
 
-        <div class="show-information">
-                
+        <div class="ai-chatbot">
+            <h2>Med AI</h2>
+            <div id="chatbot-messages"></div>
+            <input type="text" id="chatbot-input" placeholder="Ask me a question">
+            <button id="chatbot-send">Send</button>
+
         </div>
     </div>
     
