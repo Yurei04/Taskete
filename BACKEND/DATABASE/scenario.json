@@ -5,7 +5,7 @@
         "severeness": "Severe",
         "injuries": ["Head injury", "Fractured leg"],
         "aidRecommendations": ["Call emergency services", "Stabilize the head", "Apply a splint to the leg"],
-        "affectedBodyParts": ["head", "right-leg"]
+        "affectedBodyParts": ["head", "right-leg", "left-leg", "chest"]
     },
     {
         "description": "Fall injury with minor bruises",

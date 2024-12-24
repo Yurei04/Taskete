@@ -70,6 +70,7 @@ async function loadDatabase() {
         console.log("Scenario database loaded successfully.");
     } catch (error) {
         console.error("Error loading scenario database: ", error);
+        alert("Database Unable To Access")
     }
 }
 
@@ -200,6 +201,7 @@ async function loadAIDatabase() {
         console.log("data database loaded successfully.");
     } catch (error) {
         console.error("Error loading scenario database: ", error);
+        alert("Database Unable To Access")
     }
 }
 
